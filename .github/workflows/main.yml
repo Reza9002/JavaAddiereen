@@ -1,0 +1,25 @@
+name: Java CI with Maven   # Name des Workflows
+
+on:                        
+  push:                    
+    branches: [ "main" ]   
+  pull_request:            
+    branches: [ "main" ]   
+
+jobs:                     
+  build:                   
+    runs-on: ubuntu-latest  
+
+    steps:                  
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+
+      - name: Build and test
+        run: |
+          mvn package
+          mvn test
