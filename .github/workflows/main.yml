@@ -34,9 +34,9 @@ jobs:
         run: |
           mvn -B clean test
 
-      # JUnit Test-Ergebnisse hochladen
+      # JUnit Test-Ergebnisse hochladen (v4)
       - name: Upload Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: target/surefire-reports/*.xml
